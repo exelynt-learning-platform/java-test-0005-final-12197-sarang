@@ -4,15 +4,18 @@ public class NumberTrianglePattern {
         int n = 5;
 
         if (args.length > 0) {
-            n = Integer.parseInt(args[0]);
+            try {
+                n = Integer.parseInt(args[0]);
+            } catch (NumberFormatException e) {
+                n = 5;
+            }
         }
 
         int num = 1;
 
-        // Prints numbers in triangular form by increasing the count in each row
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= i; j++) {
-                System.out.print(num + " ");
+                System.out.print(num + (j < i ? " " : ""));
                 num++;
             }
             System.out.println();
